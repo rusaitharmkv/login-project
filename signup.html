@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('chat.png');
+            background-size: cover;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.2);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background:#4e1f02;
+            color: white;
+            border: none;
+        }
+
+        .msg {
+            font-size: 14px;
+        }
+
+        .strength {
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .password-box {
+            position: relative;
+        }
+
+        .password-box span {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Sign Up</h2>
+
+    <input type="text" id="newUser" placeholder="Username"><br>
+
+    <!-- Password -->
+    <div class="password-box">
+        <input type="password" id="newPass" placeholder="Password" onkeyup="checkStrength()">
+        <span onclick="togglePassword('newPass', this)">👁️</span>
+    </div>
+    <!-- Strength -->
+    <div id="strengthText" class="strength"></div>
+
+    <!-- Confirm Password -->
+    <div class="password-box">
+        <input type="password" id="confirmPass" placeholder="Confirm Password">
+        <span onclick="togglePassword('confirmPass', this)">👁️</span>
+    </div>
+
+    <button type="button" onclick="signup()">Create Account</button>
+
+    <p id="msg" class="msg"></p>
+
+    <p>
+        <a href="index.html"style="color:#4e1f02; text-decoration:underline;">
+            Back to Login
+        </a>
+    </p>
+</div>
+
+<script>
+// 👁️ Show / Hide
+function togglePassword(id, icon) {
+    var input = document.getElementById(id);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.textContent = "🙈";
+    } else {
+        input.type = "password";
+        icon.textContent = "👁️";
+    }
+}
+
+// 🔥 Password Strength
+function checkStrength() {
+    var pass = document.getElementById("newPass").value;
+    var strength = document.getElementById("strengthText");
+
+    var strong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+    var medium = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
+
+    if (pass.length === 0) {
+        strength.textContent = "";
+    } else if (strong.test(pass)) {
+        strength.textContent = "Strong Password 💪";
+        strength.style.color = "lightgreen";
+    } else if (medium.test(pass)) {
+        strength.textContent = "Medium Password ⚠️";
+        strength.style.color = "orange";
+    } else {
+        strength.textContent = "Weak Password ❌";
+        strength.style.color = "red";
+    }
+}
+
+function signup() {
+    var user = document.getElementById("newUser").value.trim();
+    var pass = document.getElementById("newPass").value.trim();
+    var confirm = document.getElementById("confirmPass").value.trim();
+    var msg = document.getElementById("msg");
+
+    var strongPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if (!user || !pass || !confirm) {
+        msg.textContent = "Please fill all fields!";
+        msg.style.color = "red";
+        return;
+    }
+
+    if (!strongPass.test(pass)) {
+        msg.textContent = "Password not strong enough!";
+        msg.style.color = "red";
+        return;
+    }
+
+    if (pass !== confirm) {
+        msg.textContent = "Passwords do not match!";
+        msg.style.color = "red";
+        return;
+    }
+    
+    localStorage.setItem("username", user);
+    localStorage.setItem("password", pass);
+
+    msg.textContent = "Account created successfully!";
+    msg.style.color = "lightgreen";
+
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 1000);
+}
+</script>
+
+</body>
+</html>

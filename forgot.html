@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forgot Password</title>
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('chat.png');
+            background-size: cover;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.2);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: rgb(100, 46, 1);
+            color: white;
+            border: none;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Forgot Password</h2>
+    <input type="username" id="username" placeholder="username" required><br>
+    <button onclick="sendLink()">Send Reset Link</button>
+    <p id="msg"></p>
+
+    <p>
+        <a href="index.html" style="color:#4e1f02; text-decoration:underline;">
+            Back to Login
+        </a>
+    </p>
+</div>
+
+<script>
+function sendLink() {
+    var inputUser = document.getElementById("username").value.trim();
+    var savedUser = localStorage.getItem("username");
+    var msg = document.getElementById("msg");
+
+    console.log(inputUser, savedUser);
+
+    if (!inputUser) {
+        msg.textContent = "Enter username!";
+        return;
+    }
+
+    if (!savedUser) {
+        msg.textContent = "No account found!";
+        return;
+    }
+
+    if (inputUser !== savedUser) {
+        msg.textContent = "Wrong username!";
+        return;
+    }
+
+    msg.textContent = "Redirecting...";
+
+    setTimeout(() => {
+        window.location.href = "reset.html";
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
