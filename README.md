@@ -4,6 +4,8 @@
 ![Made with](https://img.shields.io/badge/Made%20with-JavaScript-yellow)
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
 ![CSS](https://img.shields.io/badge/CSS-3-blue)
+![GitHub](https://img.shields.io/badge/GitHub-Profile-black)
+
 
 ---
 
@@ -43,9 +45,9 @@ This project focuses on frontend authentication logic and UI flow simulation usi
 
 ---
 
-## 📷 Preview
 
-![Project Preview](./login.png)
+## 📷 Preview
+![Project Screenshot](./login.png)
 
 ---
 
