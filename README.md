@@ -1,10 +1,10 @@
 # 🔐 Login Page System
 
+![GitHub](https://img.shields.io/badge/GitHub-Profile-black)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![Made with](https://img.shields.io/badge/Made%20with-JavaScript-yellow)
 ![HTML](https://img.shields.io/badge/HTML-5-orange)
 ![CSS](https://img.shields.io/badge/CSS-3-blue)
-![GitHub](https://img.shields.io/badge/GitHub-Profile-black)
 
 
 ---
