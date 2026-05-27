@@ -18,7 +18,7 @@ A simple login and authentication UI built using HTML, CSS, and JavaScript.
 - JavaScript
 
 ## 📷 Preview
-![Login Page](login.png)
+![Login Page](https://rusaitharmkv.github.io/login-project/login.png)
 
 ## 📂 Project Structure
 - index.html (Login page)
