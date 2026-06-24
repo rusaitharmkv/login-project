@@ -48,11 +48,8 @@ This project focuses on frontend authentication logic and UI flow simulation usi
 
 ## 📷 Preview
 ![Project Screenshot](signup.png)
-
 ![Project Screenshot](login.png)
-
 ![Project Screenshot](forgot.png)
-
 ![Project Screenshot](reset.png)
 
 ---
